@@ -2,10 +2,13 @@
 layout: default
 title: Ecommerce Home
 featured_image: /images/ebook-01.png
-flipped: true
-description_html: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus laudantium quisquam, soluta recusandae maiores odio in quidem nesciunt facere animi illum quos natus mollitia hic vitae sapiente aspernatur praesentium dolor.
+flipped: false
+description_html: >-
+  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus
+  laudantium quisquam, soluta recusandae maiores odio in quidem nesciunt facere
+  animi illum quos natus mollitia hic vitae sapiente aspernatur praesentium
+  dolor.</p>
 ---
-
 <!-- Gallery (forloop) -->
 
 
@@ -18,7 +21,7 @@ description_html: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolo
     {% for item in featuredProducts %}
 
     <div class="col-span-1 border-black border-2">
-        <img src="{{item.featured_image}}" class="object-cover object-center">
+        <img src="{{item.featured_image}}" class="object-cover object-center" />
         <h4>{{item.title}}</h4>
         <p>{{item.blurb}}</p>
     <div class="col-span-1 flex justify-between border-black border-t-2">    
@@ -39,7 +42,7 @@ description_html: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolo
     {% for item in ebookProducts %}
 
     <div class="col-span-1 border-black border-2">
-        <img src="{{item.featured_image}}" class="object-cover object-center">
+        <img src="{{item.featured_image}}" class="object-cover object-center" />
         <h4>{{item.title}}</h4>
         <p>{{item.blurb}}</p>
     <div class="col-span-1 border-black border-t-2">    
@@ -60,7 +63,7 @@ description_html: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolo
     {% for item in presetProducts %}
 
     <div class="col-span-1 border-black border-2">
-        <img src="{{item.featured_image}}" class="object-cover object-center">
+        <img src="{{item.featured_image}}" class="object-cover object-center" />
         <h4>{{item.title}}</h4>
         <p>{{item.blurb}}</p>
     <div class="col-span-1 border-black border-t-2">    
@@ -98,7 +101,7 @@ description_html: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolo
 
 <section class="p-5 grid gap-8 grid-cols-2">
     <div class="{% if page.flipped == true %} col-start-2 {% endif %}"> 
-        <img class="mx-auto" src="{{page.featured_image}}">
+        <img class="mx-auto" src="{{page.featured_image}}" />
     </div>
     <div class=" {% if page.flipped == true %} col-start-1 row-start-1 {% endif %}">
         <p>{{page.description_html}}</p>
