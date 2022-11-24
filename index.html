@@ -1,5 +1,122 @@
 ---
 layout: default
-title: Homepage
+title: Ecommerce Home
+featured_image: /images/ebook-01.png
+description_html: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus laudantium quisquam, soluta recusandae maiores odio in quidem nesciunt facere animi illum quos natus mollitia hic vitae sapiente aspernatur praesentium dolor.
 ---
-<h1 class="text-4xl font-bold text-slate-900">Welcome to your homepage!</h1>
+
+<!-- Gallery (forloop) -->
+
+
+<!-- Featured products -->
+
+<section class="p-5 grid md:grid-cols-3">
+    <h3 class="col-span-3 mb-8">Featured Products</h3>
+
+    {% assign featuredProducts = site.products | where_exp:"item", "item.featured == true" %}
+    {% for item in featuredProducts %}
+
+    <div class="col-span-1 border-black border-2">
+        <img src="{{item.featured_image}}" class="object-cover object-center">
+        <h4>{{item.title}}</h4>
+        <p>{{item.blurb}}</p>
+        <p>{{item.price}}</p>
+        <a href="{{item.url}}">Buy now</a>
+    </div>
+    
+    {% endfor %}
+</section>
+
+<!-- Ebook specific products -->
+
+<section class="p-5 grid md:grid-cols-3">
+    <h3 class="col-span-3 mb-8">Ebook Products</h3>
+
+    {% assign ebookProducts = site.products | where: 'category', 'ebooks' %}
+    {% for item in ebookProducts %}
+
+    <div class="col-span-1 border-black border-2">
+        <img src="{{item.featured_image}}" class="object-cover object-center">
+        <h4>{{item.title}}</h4>
+        <p>{{item.blurb}}</p>
+        <p>{{item.price}}</p>
+        <a href="{{item.url}}">Buy now</a>
+    </div>
+    
+    {% endfor %}
+</section>
+
+<!-- Preset specific products -->
+
+<section class="p-5 grid md:grid-cols-3">
+    <h3 class="col-span-3 mb-8">Preset Products</h3>
+
+    {% assign presetProducts = site.products | where: 'category', 'presets' %}
+    {% for item in presetProducts %}
+
+    <div class="col-span-1 border-black border-2">
+        <img src="{{item.featured_image}}" class="object-cover object-center">
+        <h4>{{item.title}}</h4>
+        <p>{{item.blurb}}</p>
+        <p>{{item.price}}</p>
+        <a href="{{item.url}}">Buy now</a>
+    </div>
+    
+    {% endfor %}
+</section>
+
+
+<!-- Testimonials (forloop) -->
+
+
+<!-- Sneak peak -->
+
+
+<!-- Intro -->
+
+
+<!-- FAQ -->
+
+
+<!-- Images (forloop) -->
+
+
+<!-- Pricing -->
+
+
+<!-- Related products (forloop) -->
+
+
+<!-- Text/image flip -->
+
+<section class="p-5 grid gap-8 grid-cols-2">
+    <div class="{% if page.flipped == true %} col-start-2 {% endif %}"> 
+        <img class="mx-auto" src="{{page.featured_image}}">
+    </div>
+    <div class=" {% if page.flipped == true %} col-start-1 row-start-1 {% endif %}">
+        <p>{{page.description_html}}</p>
+    </div>
+</section>
+
+
+<!-- Text & image -->
+
+
+<!-- Reviews -->
+
+
+<!-- Before & after (forloop) -->
+
+
+
+<!-- Text with automated columns -->
+
+<section class="p-5">
+    <div class="md:columns-2">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </div>
+</section>
