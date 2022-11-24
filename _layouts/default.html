@@ -9,6 +9,19 @@
     <title>{{page.title}}</title>
 </head>
 
+<header>
+    {% if site.data.site-settings.alert_banner.output == "alpha" %}
+    <div class="grid grid-cols-1 p-2 bg-slate-500 uppercase text-white">
+        <p class="text-center">{{site.data.site-settings.alert_banner.alert_message}}</p>
+    </div>
+    {% endif %}
+    <nav>
+        <a href="/">Home</a>
+        <a href="/">Ebooks</a>
+        <a href="/">Presets</a>
+    </nav>
+</header>
+
 <body>
     {{content}}
 </body>

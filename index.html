@@ -28,7 +28,15 @@ images:
    alt_text: This is the best ebook ever
 ---
 
-<!-- Intro -->
+<!-- Welcome banner -->
+
+<section class="grid grid-cols-1 min-h-screen">
+    <div>
+        <img src=""
+    </div>
+</section>
+
+<!-- Products introduction -->
 <section class="p-5 grid gap-8 grid-cols-2">
     <div class="{% if page.flipped == true %} col-start-2 {% endif %}">
         <img class="mx-auto" src="{{page.featured_image}}">
@@ -43,8 +51,8 @@ images:
 
 <!-- Featured products -->
 
-<section class="p-5 grid md:grid-cols-3 mt-16">
-    <h3 class="col-span-3 mb-8 text-center text-3xl">Featured Products</h3>
+<section class="p-5 grid md:grid-cols-3 gap-4 mt-16">
+    <h3 class="md:col-span-3 col-span-full mb-8 text-center text-3xl">Featured Products</h3>
 
     {% assign featuredProducts = site.products | where_exp:"item", "item.featured == true" %}
     {% for item in featuredProducts %}
@@ -64,8 +72,8 @@ images:
 
 <!-- Ebook specific products -->
 
-<section class="p-5 grid md:grid-cols-3 mt-16">
-    <h3 class="col-span-3 mb-8 text-center text-3xl">Ebook Products</h3>
+<section class="p-5 grid md:grid-cols-3 gap-4 mt-16">
+    <h3 class="md:col-span-3 col-span-full mb-8 text-center text-3xl">Ebook Products</h3>
 
     {% assign ebookProducts = site.products | where: 'category', 'ebooks' %}
     {% for item in ebookProducts %}
@@ -85,8 +93,8 @@ images:
 
 <!-- Preset specific products -->
 
-<section class="p-5 grid md:grid-cols-3 mt-16">
-    <h3 class="col-span-3 mb-8 text-center text-3xl">Preset Products</h3>
+<section class="p-5 grid md:grid-cols-3 gap-4 mt-16">
+    <h3 class="md:col-span-3 col-span-full mb-8 text-center text-3xl">Preset Products</h3>
 
     {% assign presetProducts = site.products | where: 'category', 'presets' %}
     {% for item in presetProducts %}
