@@ -2,6 +2,7 @@
 layout: default
 title: Ecommerce Home
 featured_image: /images/ebook-01.png
+flipped: true
 description_html: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus laudantium quisquam, soluta recusandae maiores odio in quidem nesciunt facere animi illum quos natus mollitia hic vitae sapiente aspernatur praesentium dolor.
 ---
 
@@ -20,8 +21,10 @@ description_html: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolo
         <img src="{{item.featured_image}}" class="object-cover object-center">
         <h4>{{item.title}}</h4>
         <p>{{item.blurb}}</p>
+    <div class="col-span-1 flex justify-between border-black border-t-2">    
         <p>{{item.price}}</p>
-        <a href="{{item.url}}">Buy now</a>
+        <a href="{{item.url}}" class="border-2">Buy now</a>
+    </div>
     </div>
     
     {% endfor %}
@@ -39,8 +42,10 @@ description_html: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolo
         <img src="{{item.featured_image}}" class="object-cover object-center">
         <h4>{{item.title}}</h4>
         <p>{{item.blurb}}</p>
+    <div class="col-span-1 border-black border-t-2">    
         <p>{{item.price}}</p>
         <a href="{{item.url}}">Buy now</a>
+    </div>
     </div>
     
     {% endfor %}
@@ -58,8 +63,10 @@ description_html: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolo
         <img src="{{item.featured_image}}" class="object-cover object-center">
         <h4>{{item.title}}</h4>
         <p>{{item.blurb}}</p>
+    <div class="col-span-1 border-black border-t-2">    
         <p>{{item.price}}</p>
         <a href="{{item.url}}">Buy now</a>
+    </div>
     </div>
     
     {% endfor %}
