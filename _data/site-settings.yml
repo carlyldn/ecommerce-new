@@ -11,5 +11,5 @@ social:
   facebook_url:
   twitter_username:
 alert_banner:
-  output: alpha
+  display: true
   alert_message: Black Friday Sale - 30% Off All Products

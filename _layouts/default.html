@@ -10,7 +10,7 @@
 </head>
 
 <header>
-    {% if site.data.site-settings.alert_banner.output == "alpha" %}
+    {% if site.data.site-settings.alert_banner.display %}
     <div class="grid grid-cols-1 p-2 bg-slate-500 uppercase text-white">
         <p class="text-center">{{site.data.site-settings.alert_banner.alert_message}}</p>
     </div>
