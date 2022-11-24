@@ -2,17 +2,49 @@
 layout: default
 title: Ecommerce Home
 featured_image: /images/ebook-01.png
-flipped: true
+flipped: false
+text_section: 
+ - description_html: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit autem eos maxime alias, minus repellat voluptates aliquam repellendus unde nostrum! Eius provident vel quos sunt aperiam, in rem adipisci aut.
+   featured_image: images/ebook-01.png
+ - description_html: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit autem eos maxime alias, minus repellat voluptates aliquam repellendus unde nostrum! Eius provident vel quos sunt aperiam, in rem adipisci aut.
+   featured_image: images/ebook-01.png   
 description_html: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus laudantium quisquam, soluta recusandae maiores odio in quidem nesciunt facere animi illum quos natus mollitia hic vitae sapiente aspernatur praesentium dolor.
+sneak_peek_image: images/ebook-01.png
+sneak_peek_heading: Lorem ipsum dolor, sit amet consectetur.
+sneak_peek_description_html: Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus ratione, rem excepturi nemo repellendus esse aliquam modi officia, error architecto non enim reiciendis iste placeat itaque dicta, illum eos ipsum!
+gallery:
+ - gallery_image: images/ebook-01.png
+ - gallery_image: images/ebook-02.png
+ - gallery_image: images/ebook-03.png
+ - gallery_image: images/ebook-01.png
+ - gallery_image: images/ebook-02.png
+ - gallery_image: images/ebook-03.png
+ - gallery_image: images/ebook-01.png
+ - gallery_image: images/ebook-02.png
+ - gallery_image: images/ebook-03.png
+ - gallery_image: images/ebook-02.png    
+images:
+ - image: images/ebook-01.png 
+   alt_text: This is the best ebook ever
 ---
 
-<!-- Gallery (forloop) -->
+<!-- Intro -->
+<section class="p-5 grid gap-8 grid-cols-2">
+    <div class="{% if page.flipped == true %} col-start-2 {% endif %}">
+        <img class="mx-auto" src="{{page.featured_image}}">
+    </div>
+    <div class="{% if page.flipped == true %} col-start-1 row-start-1 {% endif %}">
+        <h3>{{page.title}}</h3>
+        <p>{{page.description_html}}</p>
+        <a href="{{page.url}}">Buy me</a>
+    </div>
+</section>
 
 
 <!-- Featured products -->
 
-<section class="p-5 grid md:grid-cols-3">
-    <h3 class="col-span-3 mb-8">Featured Products</h3>
+<section class="p-5 grid md:grid-cols-3 mt-16">
+    <h3 class="col-span-3 mb-8 text-center text-3xl">Featured Products</h3>
 
     {% assign featuredProducts = site.products | where_exp:"item", "item.featured == true" %}
     {% for item in featuredProducts %}
@@ -32,8 +64,8 @@ description_html: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolo
 
 <!-- Ebook specific products -->
 
-<section class="p-5 grid md:grid-cols-3">
-    <h3 class="col-span-3 mb-8">Ebook Products</h3>
+<section class="p-5 grid md:grid-cols-3 mt-16">
+    <h3 class="col-span-3 mb-8 text-center text-3xl">Ebook Products</h3>
 
     {% assign ebookProducts = site.products | where: 'category', 'ebooks' %}
     {% for item in ebookProducts %}
@@ -53,8 +85,8 @@ description_html: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolo
 
 <!-- Preset specific products -->
 
-<section class="p-5 grid md:grid-cols-3">
-    <h3 class="col-span-3 mb-8">Preset Products</h3>
+<section class="p-5 grid md:grid-cols-3 mt-16">
+    <h3 class="col-span-3 mb-8 text-center text-3xl">Preset Products</h3>
 
     {% assign presetProducts = site.products | where: 'category', 'presets' %}
     {% for item in presetProducts %}
@@ -72,23 +104,89 @@ description_html: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolo
     {% endfor %}
 </section>
 
+<!-- Gallery (forloop) -->
+
+<section class="p-5 grid grid-cols-4 gap-3 mt-16">
+    <h3 class="col-span-full text-center text-3xl">Gallery</h3>
+    {% for item in page.gallery %}
+    <div class="col-span-1 portrait">
+        <img src="{{item.gallery_image}}">
+    </div>
+    {% endfor %}
+</section>
+
+
+<!-- Gallery pulling in product images (forloop) -->
+
+<section class="p-5 grid grid-cols-4 gap-3 mt-16">
+    <h3 class="col-span-full text-center text-3xl">Gallery pulling in product images</h3>
+    {% for item in site.products limit: 6 %}
+    <div class="col-span-1 portrait">
+        <img src="{{item.featured_image}}">
+    </div>
+    {% endfor %}
+</section>
+
 
 <!-- Testimonials (forloop) -->
+
+<section class="p-5 grid grid-cols-3 mt-16">
+    <div class="col-span-full text-center text-3xl">
+        <h3>Testimonials</h3>
+    </div>
+    {% for item in site.data.testimonials %}
+    <div class="p-5">
+        <span class="text-3xl">“</span><p><em>{{item.testimonial}}</em></p>
+        <p>{{item.name}}</p>
+        <p>{{item.product}}</p>
+    </div>
+    {% endfor %}
+</section>
 
 
 <!-- Sneak peak -->
 
-
-<!-- Intro -->
+<section class="p-5 grid grid-cols-2 mt-16">
+    <div class="col-span-full">
+        <h5 class="text-center text-3xl">A sneak peek inside</h5>
+    </div>
+    <div class="md:col-span-1 text-right col-span-full">
+        <img src="{{page.sneak_peek_image}}" class="inline">
+    </div>
+    <div class="md:col-span-1 col-span-full flex justify-center items-center">
+        <div class="block p-5">
+        <h3 class="text-xl mb-4">{{page.sneak_peek_heading}}</h3>
+        <p>{{page.sneak_peek_description_html}}</p>
+    </div>
+    </div>
+</section>
 
 
 <!-- FAQ -->
 
+<section class="p-5 grid grid-cols-1 mt-16">
+    <div class="col-span-full text-center text-3xl">
+        <h3>FAQs</h3>
+    </div>
+    {% for item in site.data.faq %}
+    <div class="p-5">
+        <p>Q: {{item.question}}</p>
+        <p>A: {{item.answer}}</p>
+    </div>
+    {% endfor %}
+</section>
+
 
 <!-- Images (forloop) -->
 
+<section class="grid grid-cols-3 gap-2 mt-16">
+    {% for item in page.images %}
+    <div>
+        <img src="{{item.image}}" alt="{{item.alt_text}}" class="object-cover object-center">
+    </div>
+    {% endfor %}
+</section>
 
-<!-- Pricing -->
 
 
 <!-- Related products (forloop) -->
@@ -97,19 +195,28 @@ description_html: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolo
 <!-- Text/image flip -->
 
 <section class="p-5 grid gap-8 grid-cols-2">
-    <div class="{% if page.flipped == true %} col-start-2 {% endif %}"> 
+    <div class="{% if page.flipped == true %} col-start-2 {% endif %}">
         <img class="mx-auto" src="{{page.featured_image}}">
     </div>
-    <div class=" {% if page.flipped == true %} col-start-1 row-start-1 {% endif %}">
+    <div class="{% if page.flipped == true %} col-start-1 row-start-1 {% endif %}">
         <p>{{page.description_html}}</p>
     </div>
 </section>
 
 
-<!-- Text & image -->
+<!-- Text & image fun flip automagic -->
 
+{% for item in page.text_section %}
+<section class="p-5 grid gap-8 grid-cols-2">
+    <div class="{% cycle 'col-start-2', '' %}">
+        <img class="mx-auto" src="{{page.featured_image}}">
+    </div>
+    <div class="{% cycle 'col-start-1 row-start-1', '' %}">
+        <p>{{page.description_html}}</p>
+    </div>  
+</section>
+{% endfor %}  
 
-<!-- Reviews -->
 
 
 <!-- Before & after (forloop) -->
