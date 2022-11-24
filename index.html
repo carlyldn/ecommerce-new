@@ -50,7 +50,7 @@ images:
     {% for item in featuredProducts %}
 
     <div class="col-span-1 border-black border-2">
-        <img src="{{item.featured_image}}" class="object-cover object-center" />
+        <img src="{{item.featured_image}}" class="object-cover object-center h-[30vh]">
         <h4>{{item.title}}</h4>
         <p>{{item.blurb}}</p>
     <div class="col-span-1 flex justify-between border-black border-t-2">    
@@ -71,7 +71,7 @@ images:
     {% for item in ebookProducts %}
 
     <div class="col-span-1 border-black border-2">
-        <img src="{{item.featured_image}}" class="object-cover object-center" />
+        <img src="{{item.featured_image}}" class="object-cover object-center">
         <h4>{{item.title}}</h4>
         <p>{{item.blurb}}</p>
     <div class="col-span-1 border-black border-t-2">    
@@ -92,7 +92,7 @@ images:
     {% for item in presetProducts %}
 
     <div class="col-span-1 border-black border-2">
-        <img src="{{item.featured_image}}" class="object-cover object-center" />
+        <img src="{{item.featured_image}}" class="object-cover object-center">
         <h4>{{item.title}}</h4>
         <p>{{item.blurb}}</p>
     <div class="col-span-1 border-black border-t-2">    
@@ -118,7 +118,7 @@ images:
 
 <!-- Gallery pulling in product images (forloop) -->
 
-<section class="p-5 grid grid-cols-4 gap-3 mt-16">
+<section class="p-5 grid grid-cols-3 gap-3 mt-16">
     <h3 class="col-span-full text-center text-3xl">Gallery pulling in product images</h3>
     {% for item in site.products limit: 6 %}
     <div class="col-span-1 portrait">
@@ -188,10 +188,6 @@ images:
 </section>
 
 
-
-<!-- Related products (forloop) -->
-
-
 <!-- Text/image flip -->
 
 <section class="p-5 grid gap-8 grid-cols-2">
@@ -215,11 +211,7 @@ images:
         <p>{{page.description_html}}</p>
     </div>  
 </section>
-{% endfor %}  
-
-
-
-<!-- Before & after (forloop) -->
+{% endfor %}
 
 
 
@@ -233,4 +225,31 @@ images:
 
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     </div>
+</section>
+
+<!-- Before & after (forloop) -->
+
+
+<!-- Related products (forloop) -->
+
+<section class="p-5">
+	<h4 class="mb-8">Related Products</h4>
+	<div class="grid grid-cols-3 gap-4">
+
+		{% assign pageCategory = page.category %}
+        {% assign similarProducts = site.products | where: 'category', pageCategory %}
+		{% assign relevant = similarProducts | where_exp:"product","product.url != page.url" %}
+  		{% for item in relevant limit:3 %}
+
+      		<a href="{{item.url}}">
+        		<div class="bg-cover bg-center min-h-screen" style="background-image:url({{item.image}})"></div>
+        		<span class="author">by {{item.author}}</span> //
+        		<span class="author">{{item.date | date: "%m.%d.%Y" }}</span>
+        		<h3>{{item.title}}</h3>
+      		</a>
+      		
+  		{% endfor %}
+  		
+	</div>
+
 </section>

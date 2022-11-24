@@ -1,3 +1,25 @@
 ---
 layout: default
 ---
+
+<section class="p-5">
+	<h4 class="mb-8">Related Products</h4>
+	<div class="grid grid-cols-3 gap-4">
+
+		{% assign pageCategory = page.category %}
+        {% assign similarProducts = site.products | where: 'category', pageCategory %}
+		{% assign relevant = similarProducts | where_exp:"product","product.url != page.url" %}
+  		{% for item in relevant limit:3 %}
+
+      		<a href="{{post.url}}">
+        		<div class="bg-cover bg-center min-h-screen" style="background-image:url({{item.image}})"> </div>
+        		<span class="author">by {{item.author}}</span> //
+        		<span class="author"> {{item.date | date: "%m.%d.%Y" }} </span>
+        		<h3> {{item.title}} </h3>
+      		</a>
+      		
+  		{% endfor %}
+  		
+	</div>
+
+</section>
