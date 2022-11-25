@@ -1,7 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    font-family: 'Manrope', sans-serif;
+}
  
 .button {
-    @apply inline-block p-6 bg-blue-600 text-white hover:bg-blue-800 transition;
+    @apply inline-block p-2 bg-orange-300 text-white hover:bg-orange-500 transition;
+}
+
+header {
+    font-family: 'Manrope', sans-serif;
+    text-transform: uppercase;
 }

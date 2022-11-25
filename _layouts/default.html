@@ -7,15 +7,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ '/dist/main.css' | relative_url }}">
     <title>{{page.title}}</title>
+
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400&display=swap" rel="stylesheet">
 </head>
 
 <header>
     {% if site.data.site-settings.alert_banner.display %}
-    <div class="grid grid-cols-1 p-2 bg-slate-500 uppercase text-white">
+    <div class="grid grid-cols-1 p-2 bg-orange-300 uppercase text-white">
         <p class="text-center">{{site.data.site-settings.alert_banner.alert_message}}</p>
     </div>
     {% endif %}
-    <nav>
+    <div class="col-span-full m-auto">
+        <img src="/images/logo-ecommerce.png" class="object-center object-cover m-auto p-4">
+    </div>
+    <nav class="flex justify-around hover:orange-300 mb-2">
         <a href="/">Home</a>
         <a href="/">Ebooks</a>
         <a href="/">Presets</a>

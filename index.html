@@ -3,8 +3,11 @@ layout: default
 title: Ecommerce Home
 featured_image: /images/ebook-01.png
 flipped: false
+banner_image: /images/ecommerce-travel-couple-home.jpg
+intro_heading: Travellers, explorers and full time daydreamers.
+intro_description_html: Shop our presets, ebooks and learn all of our tips and tricks to becoming a digital nomad.
 text_section: 
- - description_html: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit autem eos maxime alias, minus repellat voluptates aliquam repellendus unde nostrum! Eius provident vel quos sunt aperiam, in rem adipisci aut.
+ - description_html: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio hic dolorum at eaque nobis sint voluptatem facere.
    featured_image: images/ebook-01.png
  - description_html: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit autem eos maxime alias, minus repellat voluptates aliquam repellendus unde nostrum! Eius provident vel quos sunt aperiam, in rem adipisci aut.
    featured_image: images/ebook-01.png   
@@ -13,16 +16,13 @@ sneak_peek_image: images/ebook-01.png
 sneak_peek_heading: Lorem ipsum dolor, sit amet consectetur.
 sneak_peek_description_html: Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus ratione, rem excepturi nemo repellendus esse aliquam modi officia, error architecto non enim reiciendis iste placeat itaque dicta, illum eos ipsum!
 gallery:
- - gallery_image: images/ebook-01.png
- - gallery_image: images/ebook-02.png
- - gallery_image: images/ebook-03.png
- - gallery_image: images/ebook-01.png
- - gallery_image: images/ebook-02.png
- - gallery_image: images/ebook-03.png
- - gallery_image: images/ebook-01.png
- - gallery_image: images/ebook-02.png
- - gallery_image: images/ebook-03.png
- - gallery_image: images/ebook-02.png    
+ - gallery_image: images/saorsa-studio-web-design-and-development-london-ecommerce-project-ebook-01.png
+ - gallery_image: images/preset-01.png
+ - gallery_image: images/saorsa-studio-web-design-and-development-london-ecommerce-project-ebook-02.png
+ - gallery_image: images/preset-02.png
+ - gallery_image: images/preset-03.png
+ - gallery_image: images/saorsa-studio-web-design-and-development-london-ecommerce-project-ebook-03.png
+ - gallery_image: images/saorsa-studio-web-design-and-development-london-ecommerce-project-ebook-04.png   
 images:
  - image: images/ebook-01.png 
    alt_text: This is the best ebook ever
@@ -30,40 +30,41 @@ images:
 
 <!-- Welcome banner -->
 
-<section class="grid grid-cols-1 min-h-screen">
-    <div>
-        <img src=""
+<section class="grid grid-cols-1">
+    <div style="background-image: url('{{page.banner_image}}')" class="flex flex-col items-start justify-center bg-cover bg-center md:min-h-[70vh] w-full pl-10">
+        <h3 class="text-4xl">{{page.intro_heading}}</h3>
+        <p class="2xl">{{page.intro_description_html}}</p>
     </div>
 </section>
 
-<!-- Products introduction -->
+<!-- Products introduction
 <section class="p-5 grid gap-8 grid-cols-2">
     <div class="{% if page.flipped == true %} col-start-2 {% endif %}">
         <img class="mx-auto" src="{{page.featured_image}}">
     </div>
     <div class="{% if page.flipped == true %} col-start-1 row-start-1 {% endif %}">
-        <h3>{{page.title}}</h3>
-        <p>{{page.description_html}}</p>
+        <h3>{{page.intro_heading}}</h3>
+        <p>{{page.intro_description_html}}</p>
         <a href="{{page.url}}">Buy me</a>
     </div>
-</section>
+</section> -->
 
 
 <!-- Featured products -->
 
-<section class="p-5 grid md:grid-cols-3 gap-4 mt-16">
-    <h3 class="md:col-span-3 col-span-full mb-8 text-center text-3xl">Featured Products</h3>
+<section class="p-5 grid md:grid-cols-3 gap-6 mt-16 px-32">
+    <h3 class="md:col-span-3 col-span-full mb-8 text-center text-3xl">Best Sellers</h3>
 
     {% assign featuredProducts = site.products | where_exp:"item", "item.featured == true" %}
     {% for item in featuredProducts %}
 
-    <div class="col-span-1 border-black border-2">
-        <img src="{{item.featured_image}}" class="object-cover object-center h-[30vh]">
+    <div class=" border-black border-2 {% cycle 'row-span-1', 'row-span-2', 'row-span-1' %}">
+        <img src="{{item.featured_image}}" class="object-cover object-center {% cycle 'h-[30vh]', 'h-[60vh]', 'h-[30vh]' %}">
         <h4>{{item.title}}</h4>
         <p>{{item.blurb}}</p>
-    <div class="col-span-1 flex justify-between border-black border-t-2">    
+    <div class="flex items-center justify-between border-black border-t-2 p-4">    
         <p>{{item.price}}</p>
-        <a href="{{item.url}}" class="border-2">Buy now</a>
+        <a href="{{item.url}}" class="border-2 button">Add to basket</a>
     </div>
     </div>
     
@@ -72,19 +73,19 @@ images:
 
 <!-- Ebook specific products -->
 
-<section class="p-5 grid md:grid-cols-3 gap-4 mt-16">
-    <h3 class="md:col-span-3 col-span-full mb-8 text-center text-3xl">Ebook Products</h3>
+<section class="p-5 grid md:grid-cols-4 gap-4 mt-16">
+    <h3 class="md:col-span-4 col-span-full mb-8 text-center text-3xl">Ebook Products</h3>
 
     {% assign ebookProducts = site.products | where: 'category', 'ebooks' %}
     {% for item in ebookProducts %}
 
-    <div class="col-span-1 border-black border-2">
+    <div class="border-black border-2">
         <img src="{{item.featured_image}}" class="object-cover object-center">
         <h4>{{item.title}}</h4>
         <p>{{item.blurb}}</p>
-    <div class="col-span-1 border-black border-t-2">    
+    <div class="flex items-center justify-between border-black border-t-2 p-4">    
         <p>{{item.price}}</p>
-        <a href="{{item.url}}">Buy now</a>
+        <a href="{{item.url}}" class="button">Add to basket</a>
     </div>
     </div>
     
@@ -103,9 +104,9 @@ images:
         <img src="{{item.featured_image}}" class="object-cover object-center">
         <h4>{{item.title}}</h4>
         <p>{{item.blurb}}</p>
-    <div class="col-span-1 border-black border-t-2">    
+    <div class="flex items-center justify-between border-black border-t-2 p-4"">    
         <p>{{item.price}}</p>
-        <a href="{{item.url}}">Buy now</a>
+        <a href="{{item.url}}" class="button">Add to basket</a>
     </div>
     </div>
     
