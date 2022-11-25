@@ -6,6 +6,7 @@ flipped: false
 banner_image: /images/ecommerce-travel-couple-home.jpg
 intro_heading: Travellers, explorers and full time daydreamers.
 intro_description_html: Shop our presets, ebooks and learn all of our tips and tricks to becoming a digital nomad.
+ebook_fixed_image: /images/saorsa-studio-website-development-ecommerce-ebook-fixed-img.jpg
 text_section: 
  - description_html: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio hic dolorum at eaque nobis sint voluptatem facere.
    featured_image: images/ebook-01.png
@@ -49,7 +50,6 @@ images:
     </div>
 </section> -->
 
-
 <!-- Featured products -->
 
 <section class="p-5 grid md:grid-cols-3 gap-6 mt-16 px-32">
@@ -58,7 +58,14 @@ images:
     {% assign featuredProducts = site.products | where_exp:"item", "item.featured == true" %}
     {% for item in featuredProducts %}
 
-    <div class=" border-black border-2 {% cycle 'row-span-1', 'row-span-2', 'row-span-1' %}">
+
+    <div class="relative border-black border-2 {% cycle 'row-span-1', 'row-span-2', 'row-span-1' %}">
+
+        <div class="absolute w-24 right-0 p-2 bg-[#33443c] uppercase text-white">
+            <p class="text-center">New</p>
+        </div>
+
+
         <img src="{{item.featured_image}}" class="object-cover object-center {% cycle 'h-[30vh]', 'h-[60vh]', 'h-[30vh]' %}">
         <h4>{{item.title}}</h4>
         <p>{{item.blurb}}</p>
@@ -69,6 +76,10 @@ images:
     </div>
     
     {% endfor %}
+</section>
+
+<section>
+    <div class="bg-fixed bg-cover bg-center min-h-screen" style="background-image: url({{page.ebook_fixed_image}})"></div>
 </section>
 
 <!-- Ebook specific products -->
