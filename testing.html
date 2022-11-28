@@ -1,0 +1,71 @@
+---
+layout: default
+projects:
+ - title: Baked by Sophia
+   number: '01'
+   paragraph_1: A four page website concept for an independent home bakery.
+   paragraph_2: Fun and colourful design with video banner, abstract images and retro style fonts for a female founded bakery business.  For a product based business such as this, we can integrate the Shopify buy button to allow direct orders from your website.
+   project_image: /images/saorsa-studio-london-bespoke-web-design-and-development.jpg
+   url: baked-by-sophia  
+ - title: Luma Candles
+   number: '02'
+   paragraph_1: A five page website concept for an independent candle brand.
+   paragraph_2: Neutral and minimalist design with embedded video, testimonial slider and clickable pop-up gallery. Please note that this is a demo site only, and on a real life project we would integrate the Shopify buy button so that customers can purchase directly from your site.
+   project_image: /images/saorsa-studio-london-custom-created-web-design-and-development.jpg
+   url: luma-candles
+ - title: Oeno Restaurant
+   number: '03'
+   paragraph_1: A single page website concept for an upscale restaurant.
+   paragraph_2: Features layered overlapping images and a horizontal scroll on mobile for 'What's On'.  Option to integrate preferred booking platform to allow direct bookings from customers.
+   project_image: /images/saorsa-studio-london-web-design-home-01.jpg
+   url: oeno-restaurant    
+ - title: Asana Studio
+   number: '04'
+   paragraph_1: A single page website concept for a yoga studio.
+   paragraph_2: Clean, feminine and modern.  A site like this can be great for independent fitness instructors and teachers.  We can work to integrate your preferred booking platform so your clients can book classes directly from your site.
+   project_image: /images/saorsa-studio-web-design-and-development-london.jpg
+   url: asana-studio     
+ - title: Gaia Glamping
+   number: '05'
+   paragraph_1: A single page 'coming soon' website concept for a glamping company.
+   paragraph_2: Don't wait until your business is up and running before launching your site! Google SEO rankings take time, and you can use a ‘coming soon’ site like this to gauge interest, promote it on social media and obtain newsletter sign-ups.  Come launch day, you'll have already generated brand awareness and have potential leads ready to buy from you.
+   project_image: /images/saorsa-studio-london-gaia-glamping-mockup-02.jpg
+   url: gaia-glamping  
+ - title: Ecommerce Project
+   number: '05'
+   paragraph_1: A single page 'coming soon' website concept for a glamping company.
+   paragraph_2: Don't wait until your business is up and running before launching your site! Google SEO rankings take time, and you can use a ‘coming soon’ site like this to gauge interest, promote it on social media and obtain newsletter sign-ups.  Come launch day, you'll have already generated brand awareness and have potential leads ready to buy from you.
+   project_image: /images/saorsa-studio-london-gaia-glamping-mockup-02.jpg
+   url: gaia-glamping 
+ - title: Magazine Project
+   number: '05'
+   paragraph_1: A single page 'coming soon' website concept for a glamping company.
+   paragraph_2: Don't wait until your business is up and running before launching your site! Google SEO rankings take time, and you can use a ‘coming soon’ site like this to gauge interest, promote it on social media and obtain newsletter sign-ups.  Come launch day, you'll have already generated brand awareness and have potential leads ready to buy from you.
+   project_image: /images/saorsa-studio-london-gaia-glamping-mockup-02.jpg
+   url: gaia-glamping        
+---
+
+<section class="p-5 mt-16 px-48 bg-orange-100">
+    <div class="text-center">
+        <h3 class="uppercase mb-6 text-5xl">Portfolio</h3>
+    </div>
+    <div class="min-h-[90vh] flex flex-nowrap flex-row overflow-x-scroll border-r border-black">
+        {% for item in page.projects %}
+        <div class="w-48 border-r border-black">
+        <button class="slideButton mb-6 portfolio-header transition-all" data-target-button="{{forloop.index}}">{{item.title}}
+            </button>
+        </div>
+            
+              
+            <div class="expandableslide squishy p-10 transition-all" data-target-more="{{forloop.index}}">
+                <img src='{{item.project_image}}' class="object-fit object-cover mx-auto w-full">
+                <p class="text-3xl">{{item.number}}</p>
+                <p class="text-3xl mb-6">{{item.paragraph_1}}</p>
+                <p>{{item.paragraph_2}}</p>
+            </div>
+    
+
+        {% endfor %}
+    </div>
+    
+</section>

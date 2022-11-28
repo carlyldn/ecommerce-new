@@ -1,0 +1,97 @@
+---
+layout: ebook
+title: Shop Our ebooks
+banner_image: images/ecommerce-travel-couple-home.jpg
+---
+
+<section class="grid grid-cols-3">
+    <div class="col-span-1">
+        <img src='{{page.banner_image}}' class="aspect-square object-fit object-cover mx-auto">
+    </div>
+    <div class="col-span-2 p-20">
+        <h3 class="text-5xl mb-6">Shop Our Ebooks</h3>
+        <p class="text-2xl">Take a peek at our ebooks which have helped customers all over the world build their social media following, improve their photography skills and collaborate with brands.</p>
+    </div>
+</section>
+
+<!-- Ebook specific products -->
+
+<section class="p-5 grid md:grid-cols-4 gap-4 mt-16 p-20">
+    <h3 class="md:col-span-4 col-span-full mb-8 text-center text-3xl">Ebook Products</h3>
+
+    {% assign ebookProducts = site.products | where: 'category', 'ebooks' %}
+    {% for item in ebookProducts %}
+
+    <div class="border-black border-2">
+        <img src="{{item.featured_image}}" class="object-cover object-center">
+        <h4>{{item.title}}</h4>
+        <p>{{item.blurb}}</p>
+    <div class="flex items-center justify-between border-black border-t-2 p-4">    
+        <p>{{item.price}}</p>
+        <a href="{{item.url}}" class="button">Add to basket</a>
+    </div>
+    </div>
+    
+    {% endfor %}
+</section>
+
+<!-- Testimonials (forloop) -->
+
+<section class="p-5 grid grid-cols-1 mt-16 p-20">
+    <div class="text-center text-3xl">
+        <h3>Testimonials</h3>
+    </div>
+    <div class="slider-container text-center">
+    {% for item in site.data.testimonials %}
+    <div class="p-5 relative">
+        <span class="text-7xl quote">“</span><p>{{item.testimonial}}</p>
+        <p><em>{{item.name}}</em></p>
+        <p>{{item.product}}</p>
+    </div>
+    {% endfor %}
+    </div>
+</section>
+
+
+<!-- Sneak peak -->
+
+<section class="p-5 grid grid-cols-2 mt-16">
+    <div class="col-span-full">
+        <h5 class="text-center text-3xl">A sneak peek inside</h5>
+    </div>
+    <div class="md:col-span-1 text-right col-span-full">
+        <img src="{{page.sneak_peek_image}}" class="inline">
+    </div>
+    <div class="md:col-span-1 col-span-full flex-center">
+        <div class="p-5">
+        <h3 class="text-xl mb-4">{{page.sneak_peek_heading}}</h3>
+        <p>{{page.sneak_peek_description_html}}</p>
+    </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+
+<section class="p-5 grid grid-cols-1 mt-16 px-48 bg-orange-100">
+    <div class="text-center text-3xl">
+        <h3>FAQs</h3>
+    </div>
+    {% for item in site.data.faq.ebooks %}
+    <div class="p-5">
+        <button class="expandButton mb-6" data-target-button="{{forloop.index}}">Q: {{item.question}}
+
+            <!-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" class="plus">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" class="active minus expandable">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg> -->
+        </button>
+        
+          
+        <div class="expandable collapse" data-target-more="{{forloop.index}}">A: {{item.answer}}</div>
+
+    </div>
+    {% endfor %}
+</section>

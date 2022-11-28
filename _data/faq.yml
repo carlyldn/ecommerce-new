@@ -1,2 +1,19 @@
-- question: How does this work
-  answer: I have no idea
+presets:
+- question: How do I install the presets?
+  answer: Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium accusantium non rem dolorum sed perspiciatis facilis nostrum odio unde, commodi voluptate sequi delectus adipisci, maiores earum aliquam expedita fuga suscipit.
+- question: Do I need to pay for any additional software?
+  answer: Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium accusantium non rem dolorum sed perspiciatis facilis nostrum odio unde, commodi voluptate sequi delectus adipisci, maiores earum aliquam expedita fuga suscipit.
+- question: I've never used Lightroom/presets before, is it difficult to use?
+  answer: Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium accusantium non rem dolorum sed perspiciatis facilis nostrum odio unde, commodi voluptate sequi delectus adipisci, maiores earum aliquam expedita fuga suscipit.
+- question: Do you offer refunds?
+  answer: Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium accusantium non rem dolorum sed perspiciatis facilis nostrum odio unde, commodi voluptate sequi delectus adipisci, maiores earum aliquam expedita fuga suscipit.
+
+ebooks:
+- question: How do I download the ebooks?
+  answer: Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium accusantium non rem dolorum sed perspiciatis facilis nostrum odio unde, commodi voluptate sequi delectus adipisci, maiores earum aliquam expedita fuga suscipit.
+- question: Can I have your ebook in a paperback copy?
+  answer: Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium accusantium non rem dolorum sed perspiciatis facilis nostrum odio unde, commodi voluptate sequi delectus adipisci, maiores earum aliquam expedita fuga suscipit.
+- question: Do you offer bundle deals on ebooks?
+  answer: Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium accusantium non rem dolorum sed perspiciatis facilis nostrum odio unde, commodi voluptate sequi delectus adipisci, maiores earum aliquam expedita fuga suscipit.
+- question: Do you offer refunds?
+  answer: Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium accusantium non rem dolorum sed perspiciatis facilis nostrum odio unde, commodi voluptate sequi delectus adipisci, maiores earum aliquam expedita fuga suscipit.
